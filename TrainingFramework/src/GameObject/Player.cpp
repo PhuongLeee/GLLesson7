@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "GameManager/ResourceManagers.h"
 #include <GameStates\GSPlay.h>
+#include "SoundManager.h"
 
 Player::Player(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, std::shared_ptr<Texture>& texture)
 	:Sprite2D(model, shader, texture)
@@ -68,40 +69,7 @@ void Player::Update(GLfloat deltatime)
 	}
 
 	Set2DPosition(pos);
-}
-
-bool Player::CanShoot()
-{
-	return (m_Cooldown <= 0);
-}
-
-void Player::Shoot(std::vector<std::shared_ptr<Bullet>>& listBullet)
-{
-	//m_Cooldown = m_MaxCooldown;
-	//for (auto bullet : listBullet)
-	//{
-	//	if (!bullet->IsActive())
-	//	{
-	//		bullet->SetActive(true);
-	//		bullet->Set2DPosition(Get2DPosition());
-	//		bullet->SetSpeed(500);
-	//		bullet->SetType(BULLET_TYPE::Player);
-	//		return;
-	//	}
-	//}
-
-	//auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
-	//auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	//auto texture = ResourceManagers::GetInstance()->GetTexture("bullet");
-
-	//std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(model, shader, texture);
-	//bullet->SetSize(20, 20);
-	//bullet->Set2DPosition(Get2DPosition());
-	//bullet->SetSpeed(500);
-	//bullet->SetType(BULLET_TYPE::Player);
-
-	//listBullet.push_back(bullet);
-}
+} 
 
 float Player::distance(Vector2 pos, Vector2 target)
 {
@@ -118,6 +86,7 @@ void Player::CheckCollider(std::vector<std::shared_ptr<Bullet>>& listBullet, std
 			if (distance(pos, fish->Get2DPosition()) < m_SizeCollider + fish->GetColliderSize())
 			{
 				if (fish->GetLevel() < GetLevel()) {
+					SoundManager::GetInstance()->PlaySound("eat");
 					GSPlay::m_score++;
 					if (GSPlay::m_score % 10 == 0 && m_Level < 5) {
 						m_Level++;  

@@ -11,10 +11,7 @@ public:
 	~Player();
 
 	void MoveToPossition(Vector2 pos);
-	void Update(GLfloat deltatime) override;
-
-	bool CanShoot();
-	void Shoot(std::vector<std::shared_ptr<Bullet>>& listBullet);
+	void Update(GLfloat deltatime) override; 
 
 	void CheckCollider(std::vector<std::shared_ptr<Bullet>>& listBullet, std::vector<std::shared_ptr<Fish>> listEnermy);
 
