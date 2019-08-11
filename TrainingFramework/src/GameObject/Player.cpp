@@ -23,7 +23,7 @@ Player::Player(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader,
 	textureNormalR = ResourceManagers::GetInstance()->GetTexture("Playerv2");
 	textureNormalEatL = ResourceManagers::GetInstance()->GetTexture("Player_eat");
 	textureNormalEatR = ResourceManagers::GetInstance()->GetTexture("Player_eat_v2");
- 
+
 }
 
 Player::~Player()
@@ -41,7 +41,7 @@ void Player::Update(GLfloat deltatime)
 	if (m_isEatting) {
 		if (m_timedelay < 4) m_timedelay++;
 		else {
-			m_timedelay = 0; 
+			m_timedelay = 0;
 			m_isEatting = false;
 			SetTextureDirection();
 		}
@@ -115,7 +115,7 @@ float Player::distance(Vector2 pos, Vector2 target)
 bool Player::GetIsBooming() {
 	return m_isBooming;
 }
- 
+
 void Player::CheckCollider(std::vector<std::shared_ptr<Boom>>& listBullet, std::vector<std::shared_ptr<Fish>> listFish)
 {
 	Vector2 pos = Get2DPosition();
@@ -126,8 +126,8 @@ void Player::CheckCollider(std::vector<std::shared_ptr<Boom>>& listBullet, std::
 			if (distance(pos, fish->Get2DPosition()) < m_SizeCollider + fish->GetColliderSize())
 			{
 				if (fish->GetLevel() < GetLevel()) {
-					GSPlay::m_score++; 
-					
+					GSPlay::m_score++;
+
 					if (GsSetting::m_OnSound) {
 						SoundManager::GetInstance()->PlaySound("eat");
 					}
@@ -138,7 +138,7 @@ void Player::CheckCollider(std::vector<std::shared_ptr<Boom>>& listBullet, std::
 						SetTexture(textureNormalEatL);
 					}
 					m_isEatting = true;
-					if ( m_Level < 5 && GSPlay::m_score == leveltarget[m_Level-1] ) {
+					if (m_Level < 5 && GSPlay::m_score == leveltarget[m_Level - 1]) {
 						m_Level++;
 						if (m_Level == 2) {
 							SetSize(100, 100);
@@ -157,7 +157,7 @@ void Player::CheckCollider(std::vector<std::shared_ptr<Boom>>& listBullet, std::
 				}
 				else if (fish->GetLevel() > GetLevel()) {
 					m_isAlive = false;
-					
+
 				}
 			}
 		}
@@ -169,7 +169,7 @@ void Player::CheckCollider(std::vector<std::shared_ptr<Boom>>& listBullet, std::
 				{
 					m_isBooming = true;
 					boom->SetActive(false);
-					m_isAlive = false; 
+					m_isAlive = false;
 				}
 			}
 		}

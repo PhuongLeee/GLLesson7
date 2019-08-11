@@ -48,13 +48,13 @@ void GSPlay::Init()
 
 	m_Player->Set2DPosition(Application::screenWidth / 2, Application::screenHeight - 100);
 	m_Player->MoveToPossition(Vector2(Application::screenWidth / 2, Application::screenHeight - 100));
-	m_Player->SetSize(50, 50);
+	m_Player->SetSize(70, 80);
 
 	//Level  
 	texture = ResourceManagers::GetInstance()->GetTexture("levelGround1");
 	m_Level = std::make_shared<Sprite2D>(model, shader, texture);
-	m_Level->Set2DPosition(330,55);
-	m_Level->SetSize(400,10);
+	m_Level->Set2DPosition(330, 55);
+	m_Level->SetSize(400, 10);
 	texture = ResourceManagers::GetInstance()->GetTexture("levelGround");
 	m_Level1 = std::make_shared<Sprite2D>(model, shader, texture);
 	m_Level1->Set2DPosition(130, 55);
@@ -64,21 +64,21 @@ void GSPlay::Init()
 	m_levelFish.push_back(std::make_shared<Sprite2D>(model, shader, ResourceManagers::GetInstance()->GetTexture("Fish0")));
 	m_levelFish.back()->SetSize(20, 20);
 	m_levelFish.back()->Set2DPosition(130, 38);
-	for (int i = 0; i < 4; i++) { 
+	for (int i = 0; i < 4; i++) {
 		stream.str("");
-		stream << std::fixed << std::setprecision(0) << (i+1);
+		stream << std::fixed << std::setprecision(0) << (i + 1);
 		tex = "Fish" + stream.str();
 		//texture = ResourceManagers::GetInstance()->GetTexture(tex); 
 		m_levelFish.push_back(std::make_shared<Sprite2D>(model, shader, ResourceManagers::GetInstance()->GetTexture(tex)));
 		m_levelFish.back()->SetSize(40, 40);
-		m_levelFish.back()->Set2DPosition(130 + (int) m_Player->leveltarget[i]*400/300, 38);
+		m_levelFish.back()->Set2DPosition(130 + (int)m_Player->leveltarget[i] * 400 / 300, 38);
 	}
 
 	//text game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("BADABB__");
 	m_scoreText = std::make_shared< Text>(shader, font, "SCORE: ", TEXT_COLOR::RED, 1.0);
-	m_scoreText->Set2DPosition(Vector2(5, 25)); 	
+	m_scoreText->Set2DPosition(Vector2(5, 25));
 	m_levelText = std::make_shared< Text>(shader, font, "LEVEL: ", TEXT_COLOR::RED, 1.0);
 	m_levelText->Set2DPosition(Vector2(5, 60));
 
@@ -102,7 +102,7 @@ void GSPlay::SetLevelTexture(int point) {
 		return;
 	}
 	m_Level1->SetSize((int)(point * 400 / 300), 10);
-	m_Level1->Set2DPosition(130 + (int)(point * 400 / 300)/2, 55);
+	m_Level1->Set2DPosition(130 + (int)(point * 400 / 300) / 2, 55);
 }
 
 void GSPlay::Exit()
@@ -234,9 +234,9 @@ void GSPlay::Draw()
 	for (auto boom : m_listBoom)
 		if (boom->IsActive())
 			boom->Draw();
-	for (auto exp : m_listExplosiveEffect) 
-		if (exp->IsActive()) 
-			exp->Draw(); 
+	for (auto exp : m_listExplosiveEffect)
+		if (exp->IsActive())
+			exp->Draw();
 	//UI
 	m_scoreText->Draw();
 	m_levelText->Draw();
@@ -272,7 +272,7 @@ void GSPlay::CreateRandomFish()
 	for (auto fish : m_listFish)
 	{
 		if (!fish->IsActive())
-		{ 
+		{
 			fish->SetActive(true);
 			fish->Set2DPosition(pos);
 			fish->Init();
@@ -290,7 +290,7 @@ void GSPlay::CreateRandomFish()
 	auto texture = ResourceManagers::GetInstance()->GetTexture(tex);
 
 	std::shared_ptr<Fish> fish = std::make_shared<Fish>(model, shader, texture);
- 
+
 	fish->Set2DPosition(pos);
 	// set level
 
@@ -309,11 +309,11 @@ void GSPlay::CreateRandomFish()
 		fish->SetColliderSize(50);
 	}
 	else if (level == 3) {
-		fish->SetSize(200, 200);
+		fish->SetSize(150, 150);
 		fish->SetColliderSize(70);
 	}
 	else if (level == 4) {
-		fish->SetSize(350, 300);
+		fish->SetSize(400, 200);
 		fish->SetColliderSize(80);
 	}
 
@@ -323,30 +323,30 @@ void GSPlay::CreateRandomFish()
 
 void GSPlay::CreateRandomBoom() {
 	//if (m_listBoom.size() < 5) {
-		Vector2 pos;
-		pos.y = 0;
-		pos.x = rand() % (Application::screenWidth - 100) + 30;
+	Vector2 pos;
+	pos.y = 0;
+	pos.x = rand() % (Application::screenWidth - 100) + 30;
 
-		for (auto boom : m_listBoom)
+	for (auto boom : m_listBoom)
+	{
+		if (!boom->IsActive())
 		{
-			if (!boom->IsActive())
-			{ 
-				boom->SetActive(true);
-				boom->Set2DPosition(pos);
-				boom->Init();
-				return;
-			}
-
+			boom->SetActive(true);
+			boom->Set2DPosition(pos);
+			boom->Init();
+			return;
 		}
-		auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
-		auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-		auto texture = ResourceManagers::GetInstance()->GetTexture("TNT" );
 
-		std::shared_ptr<Boom> boom = std::make_shared<Boom>(model, shader, texture);
-		boom->SetSize(70,70);
-		boom->SetColliderSize(50);
-		boom->Set2DPosition(pos); 
-		m_listBoom.push_back(boom);
+	}
+	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
+	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("TNT");
+
+	std::shared_ptr<Boom> boom = std::make_shared<Boom>(model, shader, texture);
+	boom->SetSize(70, 70);
+	boom->SetColliderSize(50);
+	boom->Set2DPosition(pos);
+	m_listBoom.push_back(boom);
 	//}
 }
 void GSPlay::SpawnExplosive(Vector2 pos)
