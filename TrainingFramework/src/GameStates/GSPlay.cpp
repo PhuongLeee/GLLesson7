@@ -63,7 +63,7 @@ void GSPlay::Init()
 	std::stringstream stream;
 	m_levelFish.push_back(std::make_shared<Sprite2D>(model, shader, ResourceManagers::GetInstance()->GetTexture("Fish0")));
 	m_levelFish.back()->SetSize(20, 20);
-	m_levelFish.back()->Set2DPosition(130, 38);
+	m_levelFish.back()->Set2DPosition(120, 38);
 	for (int i = 0; i < 4; i++) {
 		stream.str("");
 		stream << std::fixed << std::setprecision(0) << (i + 1);
@@ -306,15 +306,15 @@ void GSPlay::CreateRandomFish()
 	}
 	else if (level == 2) {
 		fish->SetSize(100, 100);
-		fish->SetColliderSize(50);
+		fish->SetColliderSize(40);
 	}
 	else if (level == 3) {
 		fish->SetSize(150, 150);
-		fish->SetColliderSize(70);
+		fish->SetColliderSize(50);
 	}
 	else if (level == 4) {
 		fish->SetSize(400, 200);
-		fish->SetColliderSize(80);
+		fish->SetColliderSize(60);
 	}
 
 	//fish->SetRotation2(0,0,180);

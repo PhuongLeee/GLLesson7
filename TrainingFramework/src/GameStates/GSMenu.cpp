@@ -54,8 +54,8 @@ void GSMenu::Init()
 	//text game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("BADABB__");
-	m_Text_gameName = std::make_shared< Text>(shader, font, "DEMO", TEXT_COLOR::GREEN, 3.0);
-	m_Text_gameName->Set2DPosition(Vector2(Application::screenWidth / 2 - 80, 120));
+	m_Text_gameName = std::make_shared< Text>(shader, font, "Fish Hunting", TEXT_COLOR::GREEN, 3.0);
+	m_Text_gameName->Set2DPosition(Vector2(Application::screenWidth / 2 - 200, 120));
 }
 
 void GSMenu::Exit()
