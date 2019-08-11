@@ -1,6 +1,7 @@
 #include "Fish.h"
 #include "GameManager/ResourceManagers.h"
-#include <GameStates\GSPlay.h>
+#include <GameStates\GSPlay.h>  
+#include <iomanip> 
 
 Fish::Fish(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, std::shared_ptr<Texture>& texture)
 	:Sprite2D(model, shader, texture)
@@ -9,13 +10,22 @@ Fish::Fish(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, std
 	m_MaxCooldown = 0.3;
 	m_Cooldown = 0.0;
 	m_speed = rand() % 150 + 100;
-	m_MaxSpeed = 500; 
+	m_MaxSpeed = 500;
 	m_Explosive = false;
 	m_SizeCollider = 20;
 	int ran = rand() % 2;
 	if (ran == 0) ran = -1;
-	m_positionY = ran*rand() % 20 + 10;
+	m_positionY = ran * rand() % 20 + 10;
+	m_timeChangeDir = 0;
+	m_timeChangeDirRan = ran % 300 + 100;
+}
 
+void Fish::Init() {
+	int ran = rand() % 2;
+	if (ran == 0) ran = -1;
+	m_positionY = ran * rand() % 20 + 10;
+	m_timeChangeDir = 0;
+	m_timeChangeDirRan = ran % 300 + 100;
 }
 
 Fish::~Fish()
@@ -30,7 +40,7 @@ void Fish::Update(float deltaTime)
 
 	if (m_Explosive)
 	{
-		m_active = false; 
+		m_active = false;
 		return;
 	}
 
@@ -38,43 +48,55 @@ void Fish::Update(float deltaTime)
 	{
 		m_Cooldown -= deltaTime;
 	}
+	if (m_timeChangeDir >= 0) {
+		if (m_timeChangeDir < m_timeChangeDirRan)
+			m_timeChangeDir++; 
+		else {
+			m_timeChangeDir = -1;
+			m_director = rand() % 2;
+			if (m_director == 0) m_director = -1;
+			SetTextureByDirection();
+		}
+	}
 
 	Vector2 pos = Get2DPosition();
-	pos.x += m_director * m_speed * deltaTime ;
+	pos.x += m_director * m_speed * deltaTime;
 	pos.y += m_positionY * deltaTime;
 	Set2DPosition(pos);
 
-	if (pos.y > Application::screenHeight)
+	if (pos.y > Application::screenHeight + 50)
 		m_active = false;
+} 
+
+void Fish::CheckCollider(std::vector<std::shared_ptr<Boom>>& listBoom, std::vector<std::shared_ptr<Fish>> listFish)
+{
+	Vector2 pos = Get2DPosition();
+	for (auto fish : listFish)
+	{
+		if (fish->IsActive())
+		{
+			if (distance(pos, fish->Get2DPosition()) < m_SizeCollider + fish->GetColliderSize())
+			{
+				if (fish->GetLevel() < GetLevel()) {
+					fish->SetActive(false); 
+				}
+				else if (fish->GetLevel() > GetLevel()) {
+					m_active = false;
+					SetActive(false); 
+				}
+			}
+		} 
+	}
 }
 
-
-//void Fish::Shoot(std::vector<std::shared_ptr<Bullet>>& listBullet)
-//{
-//	m_Cooldown = m_MaxCooldown;
-//	for (auto bullet : listBullet)
-//	{
-//		if (!bullet->IsActive())
-//		{
-//			bullet->SetActive(true);
-//			bullet->Set2DPosition(Get2DPosition());
-//			bullet->SetSpeed(-500);
-//			bullet->SetType(BULLET_TYPE::Enermy);
-//			return;
-//		}
-//	}
-//
-//	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
-//	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-//	auto texture = ResourceManagers::GetInstance()->GetTexture("bullet");
-//
-//	std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(model, shader, texture);
-//	bullet->SetSize(20, 20);
-//	bullet->Set2DPosition(Get2DPosition());
-//	bullet->SetSpeed(-500);
-//	bullet->SetType(BULLET_TYPE::Enermy);
-//	listBullet.push_back(bullet);
-//}
+void Fish::SetTextureByDirection() {
+	std::stringstream stream;
+	stream << std::fixed << std::setprecision(0) << m_level;
+	std::string tex = "Fish" + stream.str();
+	if (m_director < 0) tex += "v2";
+	auto texture = ResourceManagers::GetInstance()->GetTexture(tex);
+	SetTexture(texture);
+}
 
 float Fish::distance(Vector2 pos, Vector2 target)
 {
@@ -89,7 +111,7 @@ bool Fish::IsActive()
 void Fish::SetActive(bool status)
 {
 	m_active = status;
-	m_Explosive = false; 
+	m_Explosive = false;
 }
 
 void Fish::SetDirection(int dir)
@@ -122,4 +144,3 @@ int Fish::GetLevel()
 {
 	return m_level;
 }
- 

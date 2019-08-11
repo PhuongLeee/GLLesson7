@@ -33,6 +33,5 @@ public:
 
 	void		SetRotation(GLfloat angel);
 
-	void		SetRotation2(GLfloat x, GLfloat y, GLfloat z);
 };
 

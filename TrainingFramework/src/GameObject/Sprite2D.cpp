@@ -193,10 +193,3 @@ void Sprite2D::SetRotation(GLfloat angel)
 	CaculateWorldMatrix();
 
 }
-
-void Sprite2D::SetRotation2(GLfloat x, GLfloat y, GLfloat z) {
-	m_Vec3Rotation.z = z;
-	m_Vec3Rotation.y = y;
-	m_Vec3Rotation.x = x;
-	CaculateWorldMatrix();
-}

@@ -44,9 +44,7 @@ void GameStateMachine::PushState(StateTypes stt)
 		m_StatesStack.back()->Pause();
 	}
 
-	// store and init the new state
-	//states.push_back(state);
-	//states.back()->Init();
+	// store and init the new state 
 	m_pNextState = state;
 }
 
@@ -70,9 +68,7 @@ void  GameStateMachine::PerformStateChange()
 	{
 		// cleanup the current state
 		if (!m_StatesStack.empty()) {
-			m_StatesStack.back()->Exit();
-			//delete states.back();
-			//states.pop_back();
+			m_StatesStack.back()->Exit(); 
 		}
 
 		// store and init the new state

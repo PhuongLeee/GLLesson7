@@ -7,10 +7,10 @@
 #include <thread>
 #include <utility>
 #include <vector>
-#include "Singleton.h"
+#include <map>
 #include "SafeQueue.h"
 
-class ThreadPool : public CSingleton< ThreadPool>
+class ThreadPool 
 {
 private:
 	class ThreadWorker {
@@ -34,6 +34,7 @@ private:
 					dequeued = m_pool->m_queue.dequeue(func);
 				}
 				if (dequeued) {
+					printf("run from thread %d\n", std::this_thread::get_id());
 					func();
 				}
 			}

@@ -2,9 +2,10 @@
 #include "gamestatebase.h"
 
 class Player;
-class Bullet;
+class Boom;
 class Fish;
 class Text;
+class ExplosiveEffect;
 
 class GSPlay :
 	public GameStateBase
@@ -25,20 +26,29 @@ public:
 
 	void HandleTouchEvents(int x, int y, bool bIsPressed) override;
 	void Update(float deltaTime) override;
-	void Draw() override;
-	
+	void Draw() override; 
 	static int m_score;
-
+	void SetLevelTexture(int point);
 private:
 	std::shared_ptr<Sprite2D> m_BackGround;
+	std::shared_ptr<Sprite2D> m_Level;
+	std::shared_ptr<Sprite2D> m_Level1;
 	std::shared_ptr<Text>  m_scoreText;
+	std::shared_ptr<Text>  m_levelText;
 	//std::shared_ptr<Text>  m_playerHealText;
 	std::shared_ptr<Player> m_Player;
-	std::vector<std::shared_ptr<Bullet>> m_listBullet;
-	std::vector<std::shared_ptr<Fish>> m_listEnermy;
+	std::vector<std::shared_ptr<Boom>> m_listBoom;
+	std::vector<std::shared_ptr<Fish>> m_listFish;
+	std::vector<std::shared_ptr<ExplosiveEffect>> m_listExplosiveEffect; 
+	std::vector<std::shared_ptr<Sprite2D> > m_levelFish;
 
 	float m_SpawnCooldown;
 	int pecentLevel;
-	void CreateRandomEnermy();
+	int m_timeRandomBoom;
+	int m_timeDelayGameOver;
+
+	void CreateRandomFish();
+	void CreateRandomBoom();
+	void SpawnExplosive(Vector2 pos);
 };
 

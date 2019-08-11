@@ -26,27 +26,34 @@ void GSMenu::Init()
 	//play button
 	texture = ResourceManagers::GetInstance()->GetTexture("button_play");
 	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(Application::screenWidth / 2, 400);
-	button->SetSize(250, 150);
+	button->Set2DPosition(Application::screenWidth / 2, 300);
+	button->SetSize(300, 90);
 	button->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Play);
 		});
 	m_listButton.push_back(button);
-
+	//exit Setting
+	texture = ResourceManagers::GetInstance()->GetTexture("button_setting");
+	button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(Application::screenWidth / 2, 400);
+	button->SetSize(300, 90);
+	button->SetOnClick([]() {
+		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Setting);
+		});
+	m_listButton.push_back(button);
 	//exit button
 	texture = ResourceManagers::GetInstance()->GetTexture("button_quit");
 	button = std::make_shared<GameButton>(model, shader, texture);
 	button->Set2DPosition(Application::screenWidth / 2, 500);
-	button->SetSize(250,150);
+	button->SetSize(300, 90);
 	button->SetOnClick([]() {
 		exit(0);
 		});
-	m_listButton.push_back(button);
-
+	m_listButton.push_back(button); 
 
 	//text game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("arialbd");
+	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("BADABB__");
 	m_Text_gameName = std::make_shared< Text>(shader, font, "DEMO", TEXT_COLOR::GREEN, 3.0);
 	m_Text_gameName->Set2DPosition(Vector2(Application::screenWidth / 2 - 80, 120));
 }

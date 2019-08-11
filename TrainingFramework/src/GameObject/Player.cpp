@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "GameManager/ResourceManagers.h"
 #include <GameStates\GSPlay.h>
-#include "SoundManager.h"
+#include <GameStates\GsSetting.h>
 
 Player::Player(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, std::shared_ptr<Texture>& texture)
 	:Sprite2D(model, shader, texture)
@@ -10,11 +10,20 @@ Player::Player(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader,
 	m_MaxCooldown = 0.1;
 	m_Cooldown = 0.0;
 	m_speed = 250;
-	m_MaxSpeed = 500; 
+	m_MaxSpeed = 500;
 	m_SizeCollider = 15;
 	m_isAlive = true;
 	m_Level = 1;
 	SetSize(50, 50);
+	m_direction = 1;
+	m_timedelay = 0;
+	m_isEatting = false;
+	m_isBooming = false;
+	textureNormalL = ResourceManagers::GetInstance()->GetTexture("Player");
+	textureNormalR = ResourceManagers::GetInstance()->GetTexture("Playerv2");
+	textureNormalEatL = ResourceManagers::GetInstance()->GetTexture("Player_eat");
+	textureNormalEatR = ResourceManagers::GetInstance()->GetTexture("Player_eat_v2");
+ 
 }
 
 Player::~Player()
@@ -29,8 +38,16 @@ void Player::MoveToPossition(Vector2 pos)
 
 void Player::Update(GLfloat deltatime)
 {
+	if (m_isEatting) {
+		if (m_timedelay < 4) m_timedelay++;
+		else {
+			m_timedelay = 0; 
+			m_isEatting = false;
+			SetTextureDirection();
+		}
+	}
 	if (!m_isAlive)
-		return; 
+		return;
 	if (m_Cooldown > 0)
 	{
 		m_Cooldown -= deltatime;
@@ -39,8 +56,11 @@ void Player::Update(GLfloat deltatime)
 	Vector2 pos = Get2DPosition();
 
 	if (pos.x < m_TargetPosition.x)
-	{ 
-		SetTexture(ResourceManagers::GetInstance()->GetTexture("Player"));
+	{
+		m_direction = 1;
+		if (!m_isEatting) {
+			SetTextureDirection();
+		}
 		pos.x += m_speed * deltatime;
 		if (pos.x > m_TargetPosition.x)
 			pos.x = m_TargetPosition.x;
@@ -48,7 +68,10 @@ void Player::Update(GLfloat deltatime)
 
 	if (pos.x > m_TargetPosition.x)
 	{
-		SetTexture(ResourceManagers::GetInstance()->GetTexture("Playerv2"));
+		m_direction = -1;
+		if (!m_isEatting) {
+			SetTextureDirection();
+		}
 		pos.x -= m_speed * deltatime;
 		if (pos.x < m_TargetPosition.x)
 			pos.x = m_TargetPosition.x;
@@ -69,14 +92,31 @@ void Player::Update(GLfloat deltatime)
 	}
 
 	Set2DPosition(pos);
-} 
+}
 
+bool Player::CanShoot()
+{
+	return (m_Cooldown <= 0);
+}
+
+void Player::SetTextureDirection() {
+	if (m_direction > 0) {
+		SetTexture(textureNormalL);
+	}
+	else {
+		SetTexture(textureNormalR);
+	}
+}
 float Player::distance(Vector2 pos, Vector2 target)
 {
 	return sqrt((pos.x - target.x) * (pos.x - target.x) + (pos.y - target.y) * (pos.y - target.y));
 }
 
-void Player::CheckCollider(std::vector<std::shared_ptr<Bullet>>& listBullet, std::vector<std::shared_ptr<Fish>> listFish)
+bool Player::GetIsBooming() {
+	return m_isBooming;
+}
+ 
+void Player::CheckCollider(std::vector<std::shared_ptr<Boom>>& listBullet, std::vector<std::shared_ptr<Fish>> listFish)
 {
 	Vector2 pos = Get2DPosition();
 	for (auto fish : listFish)
@@ -86,17 +126,27 @@ void Player::CheckCollider(std::vector<std::shared_ptr<Bullet>>& listBullet, std
 			if (distance(pos, fish->Get2DPosition()) < m_SizeCollider + fish->GetColliderSize())
 			{
 				if (fish->GetLevel() < GetLevel()) {
-					SoundManager::GetInstance()->PlaySound("eat");
-					GSPlay::m_score++;
-					if (GSPlay::m_score % 10 == 0 && m_Level < 5) {
-						m_Level++;  
+					GSPlay::m_score++; 
+					
+					if (GsSetting::m_OnSound) {
+						SoundManager::GetInstance()->PlaySound("eat");
+					}
+					if (m_direction < 0) {
+						SetTexture(textureNormalEatR);
+					}
+					else {
+						SetTexture(textureNormalEatL);
+					}
+					m_isEatting = true;
+					if ( m_Level < 5 && GSPlay::m_score == leveltarget[m_Level-1] ) {
+						m_Level++;
 						if (m_Level == 2) {
 							SetSize(100, 100);
 							SetColliderSize(50);
 						}
 						else if (m_Level == 3) {
-							SetSize(200, 200);
-							SetColliderSize(100);
+							SetSize(150, 150);
+							SetColliderSize(80);
 						}
 						else if (m_Level == 4) {
 							SetSize(350, 350);
@@ -105,11 +155,25 @@ void Player::CheckCollider(std::vector<std::shared_ptr<Bullet>>& listBullet, std
 					}
 					fish->SetActive(false);
 				}
-				else if (fish->GetLevel() > GetLevel())
-					m_isAlive = false; 
+				else if (fish->GetLevel() > GetLevel()) {
+					m_isAlive = false;
+					
+				}
 			}
 		}
-	} 
+		for (auto boom : listBullet)
+		{
+			if (boom->IsActive())
+			{
+				if (distance(pos, boom->Get2DPosition()) < m_SizeCollider + boom->GetColliderSize())
+				{
+					m_isBooming = true;
+					boom->SetActive(false);
+					m_isAlive = false; 
+				}
+			}
+		}
+	}
 }
 
 void Player::SetColliderSize(float size)
@@ -120,7 +184,7 @@ float Player::GetColliderSize()
 {
 	return m_SizeCollider;
 }
- 
+
 bool Player::IsAlive()
 {
 	return m_isAlive;
@@ -131,4 +195,7 @@ void Player::SetLevel(int level)
 }
 int Player::GetLevel() {
 	return m_Level;
+}
+void Player::SetIsBooming(bool booming) {
+	m_isBooming = booming;
 }
