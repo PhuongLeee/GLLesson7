@@ -12,6 +12,7 @@
 #include "Player.h"
 #include "Boom.h" 
 #include "Fish.h"
+#include "GsSetting.h"
 #include "ExplosiveEffect.h"
 
 
@@ -94,6 +95,8 @@ void GSPlay::Init()
 	//init sound
 	SoundManager::GetInstance()->AddSound("eat");
 	SoundManager::GetInstance()->AddSound("explosive_2");
+	SoundManager::GetInstance()->AddSound("diee");
+
 }
 
 void GSPlay::SetLevelTexture(int point) {
@@ -172,12 +175,18 @@ void GSPlay::Update(float deltaTime)
 		if (m_Player->GetIsBooming()) {
 			SpawnExplosive(m_Player->Get2DPosition());
 			m_Player->SetIsBooming(false);
-			SoundManager::GetInstance()->PlaySound("explosive_2");
+			if (GsSetting::m_OnSound) {
+				SoundManager::GetInstance()->PlaySound("explosive_2");
+			}
 		}
 		if (m_timeDelayGameOver < 90) {
 			m_timeDelayGameOver++;
 		}
-		else {
+		else { 
+
+			if (GsSetting::m_OnSound) {
+				SoundManager::GetInstance()->PlaySound("diee");
+			}
 			GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_GameOver);
 		}
 	}

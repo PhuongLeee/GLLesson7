@@ -56,6 +56,8 @@ void GSMenu::Init()
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("BADABB__");
 	m_Text_gameName = std::make_shared< Text>(shader, font, "Fish Hunting", TEXT_COLOR::GREEN, 3.0);
 	m_Text_gameName->Set2DPosition(Vector2(Application::screenWidth / 2 - 200, 120));
+
+	SoundManager::GetInstance()->AddSound("click");
 }
 
 void GSMenu::Exit()

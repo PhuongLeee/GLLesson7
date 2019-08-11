@@ -1,5 +1,5 @@
 #include "GameButton.h"
-
+#include "GameStates/GsSetting.h"
 
 GameButton::GameButton(std::shared_ptr<Models> model, std::shared_ptr<Shaders> shader, std::shared_ptr<Texture> texture)
 	: Sprite2D(model, shader, texture)
@@ -13,13 +13,16 @@ GameButton::~GameButton()
 }
 
 void GameButton::SetOnClick(void(*pBtClickFun)())
-{
+{ 
 	m_pBtClick = pBtClickFun;
 }
 
 void GameButton::HandleTouchEvents(GLint x, GLint y, bool bIsPressed)
 {
 	if (bIsPressed) {
+		if (GsSetting::m_OnSound) {
+			SoundManager::GetInstance()->PlaySound("click");
+		}
 		m_isHandle = false;
 		if ((x > Get2DPosition().x - GetSize().x / 2) && (x < Get2DPosition().x + GetSize().x / 2) && (y > Get2DPosition().y - GetSize().y / 2) && (y < Get2DPosition().y + GetSize().y / 2))
 		{
