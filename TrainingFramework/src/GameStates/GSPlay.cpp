@@ -11,12 +11,15 @@
 #include "Text.h"
 #include "Player.h"
 #include "Boom.h" 
+#include "Bubble.h" 
 #include "Fish.h"
 #include "GsSetting.h"
 #include "ExplosiveEffect.h"
+#include "GSMenu.h"
 
 
 int GSPlay::m_score = 0;
+
 GSPlay::GSPlay()
 {
 	m_SpawnCooldown = 0.5;
@@ -49,7 +52,7 @@ void GSPlay::Init()
 
 	m_Player->Set2DPosition(Application::screenWidth / 2, Application::screenHeight - 100);
 	m_Player->MoveToPossition(Vector2(Application::screenWidth / 2, Application::screenHeight - 100));
-	m_Player->SetSize(70, 80);
+	//m_Player->SetSize(70, 80);
 
 	//Level  
 	texture = ResourceManagers::GetInstance()->GetTexture("levelGround1");
@@ -63,15 +66,16 @@ void GSPlay::Init()
 	std::string tex;
 	std::stringstream stream;
 	m_levelFish.push_back(std::make_shared<Sprite2D>(model, shader, ResourceManagers::GetInstance()->GetTexture("Fish0")));
-	m_levelFish.back()->SetSize(20, 20);
+	float sizeX = m_levelFish.back()->GetSize().x*0.1;
+	float sizeY = m_levelFish.back()->GetSize().y*0.1;
+	m_levelFish.back()->SetSize(sizeX, sizeY);
 	m_levelFish.back()->Set2DPosition(120, 38);
 	for (int i = 0; i < 4; i++) {
 		stream.str("");
 		stream << std::fixed << std::setprecision(0) << (i + 1);
-		tex = "Fish" + stream.str();
-		//texture = ResourceManagers::GetInstance()->GetTexture(tex); 
-		m_levelFish.push_back(std::make_shared<Sprite2D>(model, shader, ResourceManagers::GetInstance()->GetTexture(tex)));
-		m_levelFish.back()->SetSize(40, 40);
+		tex = "Fish" + stream.str(); 
+		m_levelFish.push_back(std::make_shared<Sprite2D>(model, shader, ResourceManagers::GetInstance()->GetTexture(tex))); 
+		m_levelFish.back()->SetSize(sizeX, sizeY);
 		m_levelFish.back()->Set2DPosition(130 + (int)m_Player->leveltarget[i] * 400 / 300, 38);
 	}
 
@@ -79,7 +83,7 @@ void GSPlay::Init()
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("BADABB__");
 	m_scoreText = std::make_shared< Text>(shader, font, "SCORE: ", TEXT_COLOR::RED, 1.0);
-	m_scoreText->Set2DPosition(Vector2(5, 25));
+	m_scoreText->Set2DPosition(Vector2(800, 60));
 	m_levelText = std::make_shared< Text>(shader, font, "LEVEL: ", TEXT_COLOR::RED, 1.0);
 	m_levelText->Set2DPosition(Vector2(5, 60));
 
@@ -96,7 +100,15 @@ void GSPlay::Init()
 	SoundManager::GetInstance()->AddSound("eat");
 	SoundManager::GetInstance()->AddSound("explosive_2");
 	SoundManager::GetInstance()->AddSound("diee");
-
+	// init BUbble
+	model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
+	shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	texture = ResourceManagers::GetInstance()->GetTexture("Bubble");
+	for (int i = 0; i < 5; i++) {
+		std::shared_ptr<Bubble> bubble = std::make_shared<Bubble>(model, shader, texture);
+		bubble->Init();
+		m_listBubbleEffect.push_back(bubble);
+	}
 }
 
 void GSPlay::SetLevelTexture(int point) {
@@ -189,6 +201,7 @@ void GSPlay::Update(float deltaTime)
 			}
 			GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_GameOver);
 		}
+ 
 	}
 
 	//update fish
@@ -223,6 +236,9 @@ void GSPlay::Update(float deltaTime)
 			exp->Update(deltaTime);
 		}
 	}
+	for (auto bubble : m_listBubbleEffect) {
+		bubble->Update(deltaTime);
+	}
 }
 
 void GSPlay::Draw()
@@ -245,10 +261,13 @@ void GSPlay::Draw()
 			boom->Draw();
 	for (auto exp : m_listExplosiveEffect)
 		if (exp->IsActive())
-			exp->Draw();
+			exp->Draw(); 
 	//UI
 	m_scoreText->Draw();
 	m_levelText->Draw();
+	for (auto bubble : m_listBubbleEffect) {
+		bubble->Draw();
+	}
 }
 
 void GSPlay::CreateRandomFish()
@@ -306,23 +325,23 @@ void GSPlay::CreateRandomFish()
 	fish->SetLevel(level);
 	fish->SetDirection(dir);
 	if (level == 0) {
-		fish->SetSize(40, 40);
+		fish->SetSize(fish->GetSize().x*0.1, fish->GetSize().y * 0.1);
 		fish->SetColliderSize(20);
 	}
 	else if (level == 1) {
-		fish->SetSize(60, 60);
+		fish->SetSize(fish->GetSize().x * 0.2, fish->GetSize().y * 0.2);
 		fish->SetColliderSize(30);
 	}
 	else if (level == 2) {
-		fish->SetSize(100, 100);
+		fish->SetSize(fish->GetSize().x * 0.4, fish->GetSize().y * 0.4);
 		fish->SetColliderSize(40);
 	}
 	else if (level == 3) {
-		fish->SetSize(150, 150);
+		fish->SetSize(fish->GetSize().x * 0.5, fish->GetSize().y * 0.5);
 		fish->SetColliderSize(50);
 	}
 	else if (level == 4) {
-		fish->SetSize(400, 200);
+		fish->SetSize(fish->GetSize().x * 0.7, fish->GetSize().y * 0.7);
 		fish->SetColliderSize(60);
 	}
 

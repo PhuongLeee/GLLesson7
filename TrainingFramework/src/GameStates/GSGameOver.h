@@ -1,5 +1,6 @@
 #pragma once 
 #include "GameButton.h"
+#include "Bubble.h"
 #include "GameStates/GameStatebase.h"
 
 class GSGameOver :
@@ -27,5 +28,6 @@ private:
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
 	std::shared_ptr<Text>  m_Text_gameover;
 	std::shared_ptr<Text>  m_Text_Score;
+	std::list<std::shared_ptr<Bubble>> m_listBubbleEffect;
 
 };

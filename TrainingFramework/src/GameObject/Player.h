@@ -25,7 +25,8 @@ public:
 	void		SetTextureDirection();
 	bool		GetIsBooming();
 	void		SetIsBooming(bool booming);
-	int leveltarget[4] = { 15 ,60 ,130 ,300 };
+	int			leveltarget[4] = { 15 ,60 ,130 ,300 };
+	static int m_indexTheme;
 
 private:
 	Vector2 m_TargetPosition;
@@ -40,6 +41,8 @@ private:
 	int		m_timedelay;
 	bool	m_isEatting;
 	bool	m_isBooming;
+	float	m_sizeX;
+	float	m_sizeY;
 	std::shared_ptr<Texture> textureNormalL;
 	std::shared_ptr<Texture> textureNormalR;
 	std::shared_ptr<Texture> textureNormalEatL;

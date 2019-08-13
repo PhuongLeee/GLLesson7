@@ -1,6 +1,7 @@
 #pragma once
 #include "gamestatebase.h"
 #include "GameButton.h"
+#include "Bubble.h"
 
 class GSMenu :
 	public GameStateBase
@@ -21,10 +22,13 @@ public:
 	void HandleMouseEvents(int x, int y) override;
 	void Update(float deltaTime)override;
 	void Draw()override;
+	std::list<std::shared_ptr<Bubble>> m_listBubbleEffect;
 
 private:
 	std::shared_ptr<Sprite2D> m_BackGround;
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
+	
+
 	std::shared_ptr<Text>  m_Text_gameName;
 
 };

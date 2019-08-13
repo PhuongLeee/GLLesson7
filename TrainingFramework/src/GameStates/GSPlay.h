@@ -6,6 +6,7 @@ class Boom;
 class Fish;
 class Text;
 class ExplosiveEffect;
+class Bubble;
 
 class GSPlay :
 	public GameStateBase
@@ -28,7 +29,9 @@ public:
 	void Update(float deltaTime) override;
 	void Draw() override; 
 	static int m_score;
-	void SetLevelTexture(int point);
+	
+	void SetLevelTexture(int point); 
+
 private:
 	std::shared_ptr<Sprite2D> m_BackGround;
 	std::shared_ptr<Sprite2D> m_Level;
@@ -39,9 +42,9 @@ private:
 	std::shared_ptr<Player> m_Player;
 	std::vector<std::shared_ptr<Boom>> m_listBoom;
 	std::vector<std::shared_ptr<Fish>> m_listFish;
-	std::vector<std::shared_ptr<ExplosiveEffect>> m_listExplosiveEffect; 
+	std::vector<std::shared_ptr<ExplosiveEffect>> m_listExplosiveEffect;  
 	std::vector<std::shared_ptr<Sprite2D> > m_levelFish;
-
+	std::list<std::shared_ptr<Bubble>> m_listBubbleEffect;
 	float m_SpawnCooldown;
 	int pecentLevel;
 	int m_timeRandomBoom;

@@ -2,6 +2,7 @@
 #pragma once
 #include "gamestatebase.h"
 #include "GameButton.h"
+#include "Player.h"
 
 class GsSetting :
 	public GameStateBase
@@ -25,8 +26,8 @@ public:
 	static bool m_OnSound;
 private:
 	std::shared_ptr<Sprite2D> m_BackGround;
+	std::shared_ptr<Sprite2D> m_PlayerTheme;
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
-	std::shared_ptr<Text>  m_Text_gameName;
-
+	std::shared_ptr<Text>  m_Text_gameName; 
 };
 

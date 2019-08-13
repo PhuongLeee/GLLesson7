@@ -56,7 +56,15 @@ void GSMenu::Init()
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("BADABB__");
 	m_Text_gameName = std::make_shared< Text>(shader, font, "Fish Hunting", TEXT_COLOR::GREEN, 3.0);
 	m_Text_gameName->Set2DPosition(Vector2(Application::screenWidth / 2 - 200, 120));
-
+	// init BUbble
+	model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
+	shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	texture = ResourceManagers::GetInstance()->GetTexture("Bubble"); 
+	for (int i = 0; i < 10; i++) {
+		std::shared_ptr<Bubble> bubble = std::make_shared<Bubble>(model, shader, texture);
+		bubble->Init();
+		m_listBubbleEffect.push_back(bubble);
+	}
 	SoundManager::GetInstance()->AddSound("click");
 }
 
@@ -106,6 +114,9 @@ void GSMenu::Update(float deltaTime)
 	{
 		it->Update(deltaTime);
 	}
+	for (auto bubble : m_listBubbleEffect) {
+		bubble->Update(deltaTime);
+	}
 }
 
 void GSMenu::Draw()
@@ -116,4 +127,7 @@ void GSMenu::Draw()
 		it->Draw();
 	}
 	m_Text_gameName->Draw();
+	for (auto bubble : m_listBubbleEffect) {
+		bubble->Draw();
+	}
 }

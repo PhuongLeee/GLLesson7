@@ -2,7 +2,9 @@
 #include "GameManager/ResourceManagers.h"
 #include <GameStates\GSPlay.h>
 #include <GameStates\GsSetting.h>
+#include <iomanip>
 
+int Player:: m_indexTheme = 0;
 Player::Player(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, std::shared_ptr<Texture>& texture)
 	:Sprite2D(model, shader, texture)
 {
@@ -13,17 +15,30 @@ Player::Player(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader,
 	m_MaxSpeed = 500;
 	m_SizeCollider = 15;
 	m_isAlive = true;
-	m_Level = 1;
-	SetSize(50, 50);
+	m_Level = 1; 
 	m_direction = 1;
 	m_timedelay = 0;
 	m_isEatting = false;
 	m_isBooming = false;
-	textureNormalL = ResourceManagers::GetInstance()->GetTexture("Player");
-	textureNormalR = ResourceManagers::GetInstance()->GetTexture("Playerv2");
-	textureNormalEatL = ResourceManagers::GetInstance()->GetTexture("Player_eat");
-	textureNormalEatR = ResourceManagers::GetInstance()->GetTexture("Player_eat_v2");
-
+	m_sizeX = GetSize().x;
+	m_sizeY = GetSize().y;
+	SetSize(m_sizeX * 0.15, m_sizeX * 0.15);
+	if (m_indexTheme == 0) {
+		textureNormalL = ResourceManagers::GetInstance()->GetTexture("Player");
+		textureNormalR = ResourceManagers::GetInstance()->GetTexture("Playerv2");
+		textureNormalEatL = ResourceManagers::GetInstance()->GetTexture("Player_eat");
+		textureNormalEatR = ResourceManagers::GetInstance()->GetTexture("Player_eat_v2");
+	}
+	else {
+		std::stringstream stream;
+		stream << std::fixed << std::setprecision(0) << Player::m_indexTheme;
+		std::string tex = "player_theme" + stream.str();
+		textureNormalL = ResourceManagers::GetInstance()->GetTexture(tex);
+		textureNormalR = ResourceManagers::GetInstance()->GetTexture("Playerv2_theme" + stream.str());
+		textureNormalEatL = ResourceManagers::GetInstance()->GetTexture("Player_eat_theme" + stream.str());
+		textureNormalEatR = ResourceManagers::GetInstance()->GetTexture("Player_eat_v2_theme" + stream.str());
+	}
+	SetTexture(textureNormalL);
 }
 
 Player::~Player()
@@ -141,21 +156,25 @@ void Player::CheckCollider(std::vector<std::shared_ptr<Boom>>& listBullet, std::
 					if (m_Level < 5 && GSPlay::m_score == leveltarget[m_Level - 1]) {
 						m_Level++;
 						if (m_Level == 2) {
-							SetSize(100, 100);
+							SetSize(m_sizeX*0.25, m_sizeX*0.25);
 							SetColliderSize(50);
 						}
 						else if (m_Level == 3) {
-							SetSize(150, 150);
+							SetSize(m_sizeX * 0.45, m_sizeX * 0.45);
 							SetColliderSize(80);
 						}
 						else if (m_Level == 4) {
-							SetSize(350, 350);
+							SetSize(m_sizeX * 0.7, m_sizeX * 0.7);
+							SetColliderSize(200);
+						}
+						else if (m_Level > 4) {
+							SetSize(m_sizeX * 0.8, m_sizeX * 0.8);
 							SetColliderSize(200);
 						}
 					}
 					fish->SetActive(false);
 				}
-				else if (fish->GetLevel() > GetLevel()) {
+				else  {
 					m_isAlive = false;
 
 				}

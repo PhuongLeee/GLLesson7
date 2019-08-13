@@ -267,6 +267,7 @@
     <ClCompile Include="src\GameManager\ResourceManagers.cpp" />
     <ClCompile Include="src\GameManager\SoundManager.cpp" />
     <ClCompile Include="src\GameObject\Boom.cpp" />
+    <ClCompile Include="src\GameObject\Bubble.cpp" />
     <ClCompile Include="src\GameObject\Fish.cpp" />
     <ClCompile Include="src\GameObject\ExplosiveEffect.cpp" />
     <ClCompile Include="src\GameObject\Font.cpp" />
@@ -296,6 +297,7 @@
     <ClInclude Include="src\GameManager\SoundManager.h" />
     <ClInclude Include="src\GameObject\BaseObject.h" />
     <ClInclude Include="src\GameObject\Boom.h" />
+    <ClInclude Include="src\GameObject\Bubble.h" />
     <ClInclude Include="src\GameObject\Fish.h" />
     <ClInclude Include="src\GameObject\ExplosiveEffect.h" />
     <ClInclude Include="src\GameObject\Font.h" />

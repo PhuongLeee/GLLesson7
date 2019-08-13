@@ -93,6 +93,9 @@
     <ClCompile Include="src\GameStates\GsSetting.cpp">
       <Filter>src\GameStates</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObject\Bubble.cpp">
+      <Filter>src\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="src\GameStates\GsSetting.h">
       <Filter>src\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Bubble.h">
+      <Filter>src\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

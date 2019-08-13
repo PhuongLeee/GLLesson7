@@ -5,7 +5,14 @@
 
 GSGameOver::GSGameOver()
 {
-
+	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
+	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("Bubble");
+	for (int i = 0; i < 10; i++) {
+		std::shared_ptr<Bubble> bubble = std::make_shared<Bubble>(model, shader, texture);
+		bubble->Init();
+		m_listBubbleEffect.push_back(bubble);
+	}
 }
 
 
@@ -116,6 +123,9 @@ void GSGameOver::Update(float deltaTime)
 	{
 		it->Update(deltaTime);
 	}
+	for (auto bubble : m_listBubbleEffect) {
+		bubble->Update(deltaTime);
+	}
 }
 
 void GSGameOver::Draw()
@@ -127,4 +137,7 @@ void GSGameOver::Draw()
 	}
 	m_Text_Score->Draw();
 	m_Text_gameover->Draw();
+	for (auto bubble : m_listBubbleEffect) {
+		bubble->Draw();
+	}
 }

@@ -19,13 +19,13 @@ void GameButton::SetOnClick(void(*pBtClickFun)())
 
 void GameButton::HandleTouchEvents(GLint x, GLint y, bool bIsPressed)
 {
-	if (bIsPressed) {
-		if (GsSetting::m_OnSound) {
-			SoundManager::GetInstance()->PlaySound("click");
-		}
+	if (bIsPressed) { 
 		m_isHandle = false;
 		if ((x > Get2DPosition().x - GetSize().x / 2) && (x < Get2DPosition().x + GetSize().x / 2) && (y > Get2DPosition().y - GetSize().y / 2) && (y < Get2DPosition().y + GetSize().y / 2))
 		{
+			if (GsSetting::m_OnSound) {
+				SoundManager::GetInstance()->PlaySound("click");
+			}
 			m_pBtClick();
 			m_isHandle = true;
 		}
