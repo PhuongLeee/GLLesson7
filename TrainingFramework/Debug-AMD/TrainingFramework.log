@@ -1,0 +1,206 @@
+﻿  cl : Command line warning D9035 : option 'Gm' has been deprecated and will be removed in a future release
+  TrainingFramework.cpp
+  GsSetting.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GsSetting.cpp(20,86): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GsSetting.cpp(20,55): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GsSetting.cpp(27,53): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GsSetting.cpp(38,49): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GsSetting.cpp(49,70): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GsSetting.cpp(52,70): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:  'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:             _Ty=double
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[8],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[8],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[8],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[8],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+  GSPlay.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GsSetting.cpp(48): message :  see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[8],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[8],TEXT_COLOR &&,double &&)' being compiled
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(43,86): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(43,55): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(49,82): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(49,51): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(50,92): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(50,61): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(74,41): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(105,30): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(137,39): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(137,36): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(156,24): warning C4305:  '=': truncation from 'double' to 'float'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(252,10): warning C4244:  '=': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(253,35): warning C4244:  '=': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(328,53): warning C4244:  '=': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:  'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:             _Ty=double
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[8],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[8],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[8],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[8],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+  GSMenu.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSPlay.cpp(80): message :  see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[8],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[8],TEXT_COLOR &&,double &&)' being compiled
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSMenu.cpp(23,86): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSMenu.cpp(23,55): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSMenu.cpp(29,49): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSMenu.cpp(38,49): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSMenu.cpp(47,49): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSMenu.cpp(58,70): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:  'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:             _Ty=double
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[5],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[5],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[5],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[5],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+  GSIntro.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSMenu.cpp(57): message :  see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[5],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[5],TEXT_COLOR &&,double &&)' being compiled
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSIntro.cpp(22,80): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  GSGameOver.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSIntro.cpp(22,49): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSGameOver.cpp(26,86): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSGameOver.cpp(26,55): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSGameOver.cpp(32,49): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSGameOver.cpp(42,49): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSGameOver.cpp(52,49): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSGameOver.cpp(63,70): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSGameOver.cpp(66,67): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:  'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:             _Ty=double
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1555,71): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[9],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[9],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :  see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[9],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[9],TEXT_COLOR &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :             _Ty=Text
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\memory(1608): message :         ]
+  GameStateMachine.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameStates\GSGameOver.cpp(62): message :  see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shaders>&,std::shared_ptr<Font>&,const char(&)[9],TEXT_COLOR,double>(std::shared_ptr<Shaders> &,std::shared_ptr<Font> &,const char (&)[9],TEXT_COLOR &&,double &&)' being compiled
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+  GameStatebase.cpp
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+  Texture.cpp
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Texture.cpp(26,29): warning C4244:  'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+  Text.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Texture.cpp(26,26): warning C4244:  'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Text.cpp(22,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Text.cpp(23,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Text.cpp(169,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Text.cpp(170,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Text.cpp(180,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+  SpriteSheet.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Text.cpp(181,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(41,33): warning C4244:  '=': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(42,33): warning C4244:  '=': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(118,24): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(118,16): warning C4244:  'argument': conversion from 'int' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(173,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(174,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(184,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(185,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(199,15): warning C4244:  '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+  Shaders.cpp
+  Models.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\SpriteSheet.cpp(200,15): warning C4244:  '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Models.cpp(25,18): warning C4244:  'initializing': conversion from 'std::streamoff' to 'size_t', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Models.cpp(35,1): warning C4996:  'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(2263): message :  see declaration of 'sscanf'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Models.cpp(40,1): warning C4996:  'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(2263): message :  see declaration of 'sscanf'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Models.cpp(62,1): warning C4996:  'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(2263): message :  see declaration of 'sscanf'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Models.cpp(68,1): warning C4996:  'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Sprite3D.cpp
+  Camera.cpp
+  Sprite2D.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(2263): message :  see declaration of 'sscanf'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Sprite2D.cpp(146,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Sprite2D.cpp(147,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Sprite2D.cpp(157,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Sprite2D.cpp(158,11): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Sprite2D.cpp(172,15): warning C4244:  '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+  Player.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Sprite2D.cpp(173,15): warning C4244:  '=': conversion from 'GLint' to 'GLfloat', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+  GameButton.cpp
+  Font.cpp
+  ExplosiveEffect.cpp
+  Generating Code...
+  Compiling...
+  Fish.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Player.cpp(10,21): warning C4305:  '=': truncation from 'double' to 'float'
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Fish.cpp(10,21): warning C4305:  '=': truncation from 'double' to 'float'
+  Boom.cpp
+E:\Gameloft\GameFinal\TrainingFramework\src\GameObject\Fish.cpp(12,25): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+  SoundManager.cpp
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+  ResourceManagers.cpp
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+  Application.cpp
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+E:\Gameloft\GameFinal\TrainingFramework\src\Helper\ThreadPool.h(37,13): warning C4477:  'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'std::thread::id'
+E:\Gameloft\GameFinal\Soloud\include\soloud.h(37,1): warning C4005:  'WIN32_LEAN_AND_MEAN': macro redefinition
+  Generating Code...
+E:\Gameloft\GameFinal\Include\AMD\EGL\eglplatform.h(67): message :  see previous definition of 'WIN32_LEAN_AND_MEAN'
+Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+  TrainingFramework.vcxproj -> E:\Gameloft\GameFinal\\BIN-AMD\TrainingFramework.exe
